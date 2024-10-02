@@ -1,0 +1,5 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+public class S3ItemReader {
+
+}

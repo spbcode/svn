@@ -1,0 +1,47 @@
+package com.coderelated.dbTOCSVTOawss3.utils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.amazonaws.services.s3.model.S3Object;
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+
+public class BatchJobUtils {
+
+	public static List<Users> parseCSVS3Object(S3Object data) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(data.getObjectContent()));
+
+        try {
+            // Get all the csv headers
+            String line = reader.readLine();
+            String[] headers = line.split(",");
+
+            // Get number of columns and print headers
+            int length = headers.length;
+            for (String header : headers) {
+                System.out.print(header + "   ");
+            }
+            List<Users> users = new ArrayList<>();
+            while((line = reader.readLine()) != null) {
+                System.out.println();
+                Users user  = new Users();
+                // get and print the next line (row)
+                String[] row = line.split(",");
+                int count = 0;
+                for (String value : row) {
+                	if(count==0) {
+                		user.setId(Integer.parseInt(value));
+                	}else if(count==1) {
+                		user.setName(value.trim());
+                	}
+                    System.out.print(value + "   ");
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

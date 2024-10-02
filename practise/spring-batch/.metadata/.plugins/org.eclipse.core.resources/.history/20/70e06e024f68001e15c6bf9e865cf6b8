@@ -1,0 +1,67 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.ItemStreamException;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.mapping.DefaultLineMapper;
+import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.batch.item.file.transform.LineTokenizer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+import com.coderelated.dbTOCSVTOawss3.service.S3Service;
+
+
+@Component
+public class S3ItemReader extends FlatFileItemReader<Users> {
+
+	private final S3Service s3Service;
+
+    @Autowired
+    public S3ItemReader(S3Service s3Service) {
+        this.s3Service= s3Service;
+        setResource(null);  // Set to null to avoid default resource behavior
+        setLineMapper(createLineMapper());
+    }
+    
+    private DefaultLineMapper<Users> createLineMapper() {
+        DefaultLineMapper<Users> lineMapper = new DefaultLineMapper<>();
+
+        LineTokenizer lineTokenizer = createLineTokenizer();
+        lineMapper.setLineTokenizer(lineTokenizer);
+
+        CustomObjectFieldSetMapper fieldSetMapper = new CustomObjectFieldSetMapper();
+        lineMapper.setFieldSetMapper(fieldSetMapper);
+
+        return lineMapper;
+    }
+
+    private LineTokenizer createLineTokenizer() {
+        DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
+        lineTokenizer.setDelimiter(","); // Set the delimiter based on your CSV format
+        lineTokenizer.setNames("id", "name"); // Set field names based on your CSV headers
+        return lineTokenizer;
+    }
+
+    @Override
+    protected Users doRead() throws Exception {
+        // Use the AWS SDK to download the S3 object
+        String s3Key = "CustomerNew.csv";
+        try (
+             InputStream inputStream = s3Service.getCSVObject(s3Key).getObjectContent().getDelegateStream()) {
+
+        	BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        	return super.doRead();
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading from S3", e);
+        }
+    }
+}

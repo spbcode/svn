@@ -1,0 +1,81 @@
+import java.util.concurrent.CyclicBarrier;
+
+public class MyNameThread {	
+	
+	public static void main(String args[]) {
+		Thread mythread = new Thread(new MyThread());
+		Thread nameThread = new Thread(new NameThread(mythread));
+		Thread samThread = new Thread(new SamThread(nameThread));
+//		CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+		nameThread.start();
+		mythread.start();
+		samThread.start();
+	}
+
+}
+
+class MyThread implements Runnable{
+	
+
+	@Override
+	public void run() {
+		try {
+			Thread.sleep(1000);
+			System.out.print("My ");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+}
+
+class NameThread implements Runnable{
+	
+	Thread mythread;
+
+	public NameThread(Thread mythread) {
+		super();
+		this.mythread = mythread;
+	}
+
+
+
+	@Override
+	public void run() {
+		try {
+//			mythread.join();
+			System.out.print("Name is ");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+}
+
+class SamThread implements Runnable{
+
+	Thread nameThread;
+	
+	
+	public SamThread(Thread nameThread) {
+		super();
+		this.nameThread = nameThread;
+	}
+
+
+	@Override
+	public void run() {
+		try {
+//			nameThread.join();
+			System.out.print("Sam");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+}

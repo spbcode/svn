@@ -1,0 +1,4 @@
+io/coderelated/kafka/wikimedia/WikimediaChangesProducer.java
+ io.coderelated.kafka.wikimedia.WikimediaChangesProducer
+io/coderelated/kafka/wikimedia/WikimediaChangeHandler.java
+ io.coderelated.kafka.wikimedia.WikimediaChangeHandler

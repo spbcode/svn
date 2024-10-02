@@ -1,0 +1,104 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.ItemStreamException;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.mapping.DefaultLineMapper;
+import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.batch.item.file.transform.LineTokenizer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.stereotype.Component;
+
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+import com.coderelated.dbTOCSVTOawss3.service.S3Service;
+
+
+@Component
+public class S3ItemReader extends FlatFileItemReader<Users> {
+
+	private final S3Service s3Service;
+
+    @Autowired
+    public S3ItemReader(S3Service s3Service) {
+        this.s3Service= s3Service;
+//        setLineMapper(createLineMapper());
+    }
+    
+//    private DefaultLineMapper<Users> createLineMapper() {
+//        DefaultLineMapper<Users> lineMapper = new DefaultLineMapper<>();
+//
+//        LineTokenizer lineTokenizer = createLineTokenizer();
+//        lineMapper.setLineTokenizer(lineTokenizer);
+//
+//        CustomObjectFieldSetMapper fieldSetMapper = new CustomObjectFieldSetMapper();
+//        lineMapper.setFieldSetMapper(fieldSetMapper);
+//
+//        return lineMapper;
+//    }
+//
+//    private LineTokenizer createLineTokenizer() {
+//        DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
+//        lineTokenizer.setDelimiter(","); // Set the delimiter based on your CSV format
+//        lineTokenizer.setNames("id", "name"); // Set field names based on your CSV headers
+//        return lineTokenizer;
+//    }
+//    
+//    @Override
+//    protected void doOpen() throws Exception {
+//        super.doOpen();
+//        // Set the S3 resource before reading starts
+//        String s3Key = "CustomerNew.csv";
+//        S3Object s3Object = s3Service.getCSVObject(s3Key);
+//
+//        // Set the InputStream as the resource for the reader
+//        try (S3ObjectInputStream inputStream = s3Object.getObjectContent()) {
+//            setResource(new InputStreamResource(inputStream));
+//        }
+//    }
+//
+//    @Override
+//    protected Users doRead() throws Exception {
+//        // Use the AWS SDK to download the S3 object
+//    	super.doOpen();
+//    	return super.doRead();
+//    }
+    
+    @Override
+    public Users read() throws Exception {
+        // Use the AWS SDK to download the S3 object
+        String s3Key = "CustomerNew.csv";
+        S3Object s3Object = s3Service.getCSVObject(s3Key);
+
+        try (S3ObjectInputStream inputStream = s3Object.getObjectContent();
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+
+            // Implement your logic to parse each line and convert it to a Users object
+            // For simplicity, let's assume each line is a CSV line with id and name separated by a comma
+            String line = reader.readLine();
+            if (line != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                    Users user = new Users();
+                    user.setId(Integer.parseInt(parts[0].trim()));
+                    user.setName(parts[1].trim());
+                    return user;
+                }
+            }
+
+            // Return null when there is no more data
+            return null;
+        } catch (IOException e) {
+            throw new ItemStreamException("Error reading from S3", e);
+        }
+    }
+}

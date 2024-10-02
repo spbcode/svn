@@ -1,0 +1,84 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.batch.item.ItemReader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+import com.coderelated.dbTOCSVTOawss3.service.S3Service;
+
+
+@Component
+public class S3ItemReader implements ItemReader<Users> {
+
+    private final S3Service s3Service;
+    private List<Users> usersList;
+    private Iterator<Users> userIterator;
+
+    @Autowired
+    public S3ItemReader(S3Service s3Service) {
+        this.s3Service = s3Service;
+    }
+
+    @Override
+    public Users read() throws Exception {
+        if (usersList == null || !userIterator.hasNext()) {
+            // Use the AWS SDK to download the S3 object
+            String s3Key = "output.csv";
+            S3Object s3Object = s3Service.getCSVObject(s3Key);
+            try (S3ObjectInputStream inputStream = s3Object.getObjectContent()) {
+                usersList = parseCsv(inputStream);
+                userIterator = usersList.iterator();
+            }
+        }
+
+        return userIterator.hasNext() ? userIterator.next() : null;
+    }
+
+    private List<Users> parseCsv(InputStream inputStream) throws IOException {
+        List<Users> usersList = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            // Skip the header
+            reader.readLine();
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 4) { // Assuming there are four columns in the CSV
+
+                    Users user = new Users();
+                    String idWithoutQuotes = parts[0].replaceAll("\"", "").trim();
+                    user.setId(Integer.parseInt(idWithoutQuotes));
+                    user.setName(parts[1].trim());
+
+                    // Parse date from string to Date
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    try {
+                        user.setDob(dateFormat.parse(parts[2].trim()));
+                        user.setCreatedDate(dateFormat.parse(parts[3].trim()));
+                    } catch (ParseException e) {
+                        // Handle parsing exception
+                        e.printStackTrace();
+                    }
+
+                    usersList.add(user);
+                }
+            }
+        }
+
+        return usersList;
+    }
+}

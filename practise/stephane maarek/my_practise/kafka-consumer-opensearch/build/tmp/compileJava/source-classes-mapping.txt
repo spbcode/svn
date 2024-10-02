@@ -1,0 +1,3 @@
+io/coderelated/kafka/opensearch/OpensearchConsumer.java
+ io.coderelated.kafka.opensearch.OpensearchConsumer
+ io.coderelated.kafka.opensearch.OpensearchConsumer$1

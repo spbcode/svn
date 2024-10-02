@@ -1,0 +1,16 @@
+#spring.main.web-application-type=none
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/cmddb
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+spring.batch.job.name=postgresqlTocsvToS3Job
+spring.batch.job.enabled=true
+
+aws.accessKeyId=AKIAVSHYFK6LXO4QCUMR
+aws.secretKey=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
+aws.s3.bucket=coderelated-s3-demo
+aws.region=us-east-1
+
+
+logging.level.root=DEBBUG

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/clients-SPA-legacy/clients-js-only-react-legacy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/clients-SPA-legacy/oauth-resource-server-auth0-legacy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-authorization-server/client-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-authorization-server/client-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-authorization-server/resource-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-authorization-server/resource-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-authorization-server/spring-authorization-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-authorization-server/spring-authorization-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-jws-jwk-legacy/oauth-authorization-server-jws-jwk-legacy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-jws-jwk-legacy/oauth-resource-server-jws-jwk-legacy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-jwt/jwt-auth-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-jwt/jwt-auth-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-jwt/jwt-resource-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-jwt/jwt-resource-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-authorization-server-legacy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/api-gateway-zuul-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/api-gateway-zuul-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/authorization-server-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/authorization-server-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/resource-server-mvc-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/resource-server-mvc-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/resource-server-mvc-no-oauth-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/resource-server-mvc-no-oauth-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/service-registry-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/1x/service-registry-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/api-gateway-zuul-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/api-gateway-zuul-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/authorization-server-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/authorization-server-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/resource-server-mvc-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/resource-server-mvc-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/resource-server-rest-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/resource-server-rest-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/service-registry-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-microservices/2x/service-registry-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-resource-server-legacy-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-resource-server-legacy-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-ui-implicit-angularjs-legacy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-ui-password-angularjs-legacy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-legacy/oauth-zuul-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-resource-server/authorization-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-resource-server/authorization-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-resource-server/resource-server-jwt/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-resource-server/resource-server-jwt/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-resource-server/resource-server-opaque/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-resource-server/resource-server-opaque/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-rest/oauth-authorization-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-rest/oauth-authorization-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-rest/oauth-resource-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-rest/oauth-resource-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-authorization-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-authorization-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-client-app-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-client-app-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-client-app-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-client-app-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-resource-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../baeldung/spring-security-oauth/oauth-sso/sso-resource-server/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

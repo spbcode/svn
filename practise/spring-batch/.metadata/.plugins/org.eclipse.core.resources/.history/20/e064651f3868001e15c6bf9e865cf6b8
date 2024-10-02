@@ -1,0 +1,22 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import org.springframework.batch.item.file.mapping.FieldSetMapper;
+import org.springframework.batch.item.file.transform.FieldSet;
+import org.springframework.validation.BindException;
+
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+
+public class CustomObjectFieldSetMapper implements FieldSetMapper<Users>{
+
+
+	@Override
+	public Users mapFieldSet(FieldSet fieldSet) throws BindException {
+		// TODO Auto-generated method stub
+		 Users customObject = new Users();
+	        customObject.setId(fieldSet.readString("id"));
+	        customObject.setName(fieldSet.readString("name"));
+	        // Set other fields as needed
+
+	        return customObject;
+	}
+}

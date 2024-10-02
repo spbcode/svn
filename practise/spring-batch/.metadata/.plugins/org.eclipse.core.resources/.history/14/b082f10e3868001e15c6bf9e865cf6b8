@@ -1,0 +1,9 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import org.springframework.batch.item.file.mapping.FieldSetMapper;
+
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+
+public class CustomObjectFieldSetMapper implements FieldSetMapper<Users>{
+
+}

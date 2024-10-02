@@ -1,0 +1,70 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	jaxb
+}
+
+bootJar{
+	archivesBaseName = 'gs-producing-web-service'
+	archiveVersion = '0.1.0'
+}
+
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'wsdl4j:wsdl4j'
+	jaxb (
+			'com.sun.xml.bind:jaxb-xjc:2.3.1',
+			'com.sun.xml.bind:jaxb-impl:2.3.1',
+			'org.glassfish.jaxb:jaxb-runtime:2.3.3'
+	)
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+sourceSets {
+	main{
+		java {
+			srcDir 'src/main/java'
+			srcDir 'build/generate-sources/jaxb'
+		}
+	}
+}
+
+task jaxb {
+	System.setProperty('javax.xml.accessExternalSchema', 'all')
+	def jaxbTargetDir = file("src/main/java/com/example/soappublishservice")
+	doLast {
+		jaxbTargetDir.mkdirs()
+		ant.taskdef(
+				name: 'xjc',
+				classname: 'com.sun.tools.xjc.XJCTask',
+				classpath: configurations.jaxb.asPath
+		)
+		ant.jaxbTargetDir = jaxbTargetDir
+		ant.xjc(
+				destdir: '${jaxbTargetDir}',
+//				package: '',
+				schema: 'src/main/resources/countries.xsd'
+		)
+	}
+}
+
+compileJava.dependsOn jaxb

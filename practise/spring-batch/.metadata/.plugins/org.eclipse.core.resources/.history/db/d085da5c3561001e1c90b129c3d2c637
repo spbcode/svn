@@ -1,0 +1,99 @@
+import java.util.List;
+
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
+import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.configuration.annotation.StepScope;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.database.JpaPagingItemReader;
+import org.springframework.batch.item.file.FlatFileItemWriter;
+import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.FileSystemResource;
+
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+
+import jakarta.persistence.EntityManagerFactory;
+import software.amazon.awssdk.services.s3.S3Client;
+
+@Configuration
+@EnableBatchProcessing
+public class BatchConfig {
+
+    @Autowired
+    private JobBuilderFactory jobBuilderFactory;
+
+    @Autowired
+    private StepBuilderFactory stepBuilderFactory;
+
+    @Autowired
+    private EntityManagerFactory entityManagerFactory;
+
+    @Autowired
+    private S3Client s3Client;
+    
+    @Autowired
+    private S3Service s3Service;
+    
+    @Value("${aws.s3.bucket}")
+    private String s3bucketName;
+
+    @Bean
+    @StepScope
+    public ItemReader<Users> reader() {
+        JpaPagingItemReader<Users> reader = new JpaPagingItemReader<>();
+        reader.setEntityManagerFactory(entityManagerFactory);
+        reader.setQueryString("SELECT e FROM YourEntity e");
+        return reader;
+    }
+
+    @Bean
+    @StepScope
+    public FlatFileItemWriter<Users> writer() {
+        return new FlatFileItemWriterBuilder<Users>()
+                .name("yourEntityItemWriter")
+                .resource(new FileSystemResource("output.csv"))
+                .delimited()
+                .names("id", "name")
+                .build();
+    }
+
+    @Bean
+    public ItemWriter<Users> s3ItemWriter() {
+        return items -> {
+            String csvFilePath = "output.csv";
+            writeItemsToCsv(items, csvFilePath);
+
+            String s3BucketName = "your-s3-bucket";
+            String s3ObjectKey = "output.csv";
+            s3Service.uploadCSVObject(s3BucketName, s3ObjectKey, new java.io.File(csvFilePath));
+        };
+    }
+
+    private void writeItemsToCsv(List<? extends Users> items, String filePath) {
+        // Implement logic to write items to a CSV file
+    }
+
+    @Bean
+    public Step step(ItemReader<Users> reader, FlatFileItemWriter<Users> writer) {
+        return stepBuilderFactory.get("step")
+                .<Users, Users>chunk(10)
+                .reader(reader)
+                .writer(writer)
+                .build();
+    }
+
+    @Bean
+    public Job job(Step step) {
+        return jobBuilderFactory.get("job")
+                .flow(step)
+                .end()
+                .build();
+    }
+}

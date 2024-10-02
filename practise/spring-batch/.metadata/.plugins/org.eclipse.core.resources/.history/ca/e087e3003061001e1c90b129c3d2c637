@@ -1,0 +1,11 @@
+spring.main.web-application-type=none
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/cmddb
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+
+aws.access_key_id=<aws_access_key_id>
+aws.secret_access_key=<aws_secret_access_key>
+aws.s3.bucket=<s3_bucket>
+aws.s3.region=US East (N. Virginia) us-east-1

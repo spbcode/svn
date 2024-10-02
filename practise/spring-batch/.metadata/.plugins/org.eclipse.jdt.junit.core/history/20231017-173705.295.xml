@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SpringCoreDevOpsApplicationTests" project="spring-core-devops" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="guru.springframework.SpringCoreDevOpsApplicationTests" time="0.001">
+    <testcase name="testexternalpropsenv" classname="guru.springframework.SpringCoreDevOpsApplicationTests" time="0.001">
+      <error>java.lang.IllegalStateException: Failed to load ApplicationContext&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)&#13;
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)&#13;
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:183)&#13;
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:123)&#13;
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:228)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:230)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:249)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:193)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: java.lang.IllegalStateException: Cannot load configuration class: guru.test.config.external.props.ExternalPropsEnvironment&#13;
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:416)&#13;
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:263)&#13;
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:284)&#13;
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:130)&#13;
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:678)&#13;
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:520)&#13;
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:766)&#13;
+	at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361)&#13;
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)&#13;
+	at org.springframework.boot.test.SpringApplicationContextLoader.loadContext(SpringApplicationContextLoader.java:98)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)&#13;
+	... 25 more&#13;
+Caused by: java.lang.ExceptionInInitializerError&#13;
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.newEnhancer(ConfigurationClassEnhancer.java:119)&#13;
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:107)&#13;
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:406)&#13;
+	... 36 more&#13;
+Caused by: java.lang.IllegalStateException: Unable to load cache item&#13;
+	at org.springframework.cglib.core.internal.LoadingCache.createEntry(LoadingCache.java:79)&#13;
+	at org.springframework.cglib.core.internal.LoadingCache.get(LoadingCache.java:34)&#13;
+	at org.springframework.cglib.core.AbstractClassGenerator$ClassLoaderData.get(AbstractClassGenerator.java:105)&#13;
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:278)&#13;
+	at org.springframework.cglib.core.KeyFactory$Generator.create(KeyFactory.java:221)&#13;
+	at org.springframework.cglib.core.KeyFactory.create(KeyFactory.java:174)&#13;
+	at org.springframework.cglib.core.KeyFactory.create(KeyFactory.java:153)&#13;
+	at org.springframework.cglib.proxy.Enhancer.&lt;clinit&gt;(Enhancer.java:73)&#13;
+	... 39 more&#13;
+Caused by: java.lang.ExceptionInInitializerError&#13;
+	at org.springframework.cglib.core.KeyFactory$Generator.generateClass(KeyFactory.java:243)&#13;
+	at org.springframework.cglib.core.DefaultGeneratorStrategy.generate(DefaultGeneratorStrategy.java:25)&#13;
+	at org.springframework.cglib.core.AbstractClassGenerator.generate(AbstractClassGenerator.java:312)&#13;
+	at org.springframework.cglib.core.AbstractClassGenerator$ClassLoaderData$3.apply(AbstractClassGenerator.java:85)&#13;
+	at org.springframework.cglib.core.AbstractClassGenerator$ClassLoaderData$3.apply(AbstractClassGenerator.java:83)&#13;
+	at org.springframework.cglib.core.internal.LoadingCache$2.call(LoadingCache.java:54)&#13;
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)&#13;
+	at org.springframework.cglib.core.internal.LoadingCache.createEntry(LoadingCache.java:61)&#13;
+	... 46 more&#13;
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @e73f9ac&#13;
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)&#13;
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)&#13;
+	at java.base/java.lang.reflect.Method.checkCanSetAccessible(Method.java:199)&#13;
+	at java.base/java.lang.reflect.Method.setAccessible(Method.java:193)&#13;
+	at org.springframework.cglib.core.ReflectUtils$1.run(ReflectUtils.java:54)&#13;
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)&#13;
+	at org.springframework.cglib.core.ReflectUtils.&lt;clinit&gt;(ReflectUtils.java:44)&#13;
+	... 54 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question02/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question04/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question06/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question10/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question11/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question12/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question13/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question14/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question16/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question21/pom.xml" />
+        <option value="$PROJECT_DIR$/../module03-question22/pom.xml" />
+        <option value="$PROJECT_DIR$/../pom.xml" />
+        <option value="$PROJECT_DIR$/../../container-dependency-Ioc-module01-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../../module02-AOP-examples/module02-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../../module04-spring-boot-examples/module04-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../practise/designpatterns/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="azul-17 (2)" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="C:\eclipse-jee-2020-12-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.1.v20201027-0507" version="15.0.1"/>
+    <libraryInfo home="C:\Program Files\zulu\zulu11.60.20-sa-jdk11.0.17-win_x64" version="11.0.17"/>
+    <libraryInfo home="C:\eclipse-jee-2020-12-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.1.v20201027-0507\jre" version="15.0.1"/>
+    <libraryInfo home="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64" version="1.8.0_382">
+        <bootpath>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\resources.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\rt.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\sunrsasign.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\jsse.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\jce.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\charsets.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\jfr.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\cat.jar"/>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\ext"/>
+            <entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="C:\Program Files\zulu\zulu8.72.0.17-ca-jdk8.0.382-win_x64\jre\lib\endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+</libraryInfos>

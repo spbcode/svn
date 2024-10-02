@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sso-client-app-1" />
+        <module name="sso-client-app-2" />
+        <module name="oauth-resource-server-auth0-legacy" />
+        <module name="resource-server-jwt" />
+        <module name="resource-server-opaque" />
+        <module name="client-server" />
+        <module name="clients-js-only-react-legacy" />
+        <module name="oauth-resource-server-legacy-2" />
+        <module name="oauth-resource-server-legacy-1" />
+        <module name="jwt-resource-server" />
+        <module name="api-gateway-zuul-2" />
+        <module name="api-gateway-zuul-1" />
+        <module name="authorization-server-1" />
+        <module name="service-registry-2" />
+        <module name="oauth-ui-password-angularjs-legacy" />
+        <module name="service-registry-1" />
+        <module name="sso-resource-server" />
+        <module name="oauth-authorization-server" />
+        <module name="authorization-server-2" />
+        <module name="spring-authorization-server" />
+        <module name="oauth-ui-implicit-angularjs-legacy" />
+        <module name="oauth-authorization-server-jws-jwk-legacy" />
+        <module name="sso-authorization-server" />
+        <module name="oauth-authorization-server-legacy" />
+        <module name="resource-server-mvc-no-oauth-1" />
+        <module name="oauth-resource-server" />
+        <module name="resource-server-mvc-1" />
+        <module name="resource-server-rest-2" />
+        <module name="resource-server-mvc-2" />
+        <module name="authorization-server" />
+        <module name="resource-server" />
+        <module name="jwt-auth-server" />
+        <module name="oauth-zuul-gateway" />
+        <module name="oauth-resource-server-jws-jwk-legacy" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="PhotoAppApiUsers" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PhotoAppApiUsers" options="-parameters" />
+      <module name="api-gateway-zuul-2" options="-parameters" />
+      <module name="authorization-server" options="-parameters" />
+      <module name="authorization-server-2" options="-parameters" />
+      <module name="client-server" options="-parameters" />
+      <module name="clients-js-only-react-legacy" options="-parameters" />
+      <module name="jwt-auth-server" options="-parameters" />
+      <module name="jwt-resource-server" options="-parameters" />
+      <module name="oauth-authorization-server" options="-parameters" />
+      <module name="oauth-authorization-server-jws-jwk-legacy" options="-parameters" />
+      <module name="oauth-authorization-server-legacy" options="-parameters" />
+      <module name="oauth-resource-server" options="-parameters" />
+      <module name="oauth-resource-server-auth0-legacy" options="-parameters" />
+      <module name="oauth-resource-server-jws-jwk-legacy" options="-parameters" />
+      <module name="oauth-resource-server-legacy-1" options="-parameters" />
+      <module name="oauth-resource-server-legacy-2" options="-parameters" />
+      <module name="oauth-ui-implicit-angularjs-legacy" options="-parameters" />
+      <module name="oauth-ui-password-angularjs-legacy" options="-parameters" />
+      <module name="oauth-zuul-gateway" options="-parameters" />
+      <module name="resource-server" options="-parameters" />
+      <module name="resource-server-jwt" options="-parameters" />
+      <module name="resource-server-mvc-2" options="-parameters" />
+      <module name="resource-server-opaque" options="-parameters" />
+      <module name="resource-server-rest-2" options="-parameters" />
+      <module name="service-registry-2" options="-parameters" />
+      <module name="spring-authorization-server" options="-parameters" />
+      <module name="sso-authorization-server" options="-parameters" />
+      <module name="sso-client-app-1" options="-parameters" />
+      <module name="sso-client-app-2" options="-parameters" />
+      <module name="sso-resource-server" options="-parameters" />
+    </option>
+  </component>
+</project>

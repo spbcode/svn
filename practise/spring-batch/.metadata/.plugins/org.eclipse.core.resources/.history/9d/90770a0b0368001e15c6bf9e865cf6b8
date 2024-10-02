@@ -1,0 +1,76 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import org.springframework.batch.item.file.FlatFileItemReader;
+
+
+@Component
+public class S3ItemReader extends FlatFileItemReader<String> {
+
+	private final S3Client s3Client;
+    private final String bucketName;
+    private final String key;
+
+    public S3ItemReader(S3Client s3Client, String bucketName, String key) {
+        this.s3Client = s3Client;
+        this.bucketName = bucketName;
+        this.key = key;
+        setResource(null);  // Set to null to avoid default resource behavior
+        setLineMapper(createLineMapper());
+    }
+
+    @Override
+    public void open(ExecutionContext executionContext) throws ItemStreamException {
+        // Open logic, if needed
+    }
+
+    @Override
+    public void update(ExecutionContext executionContext) throws ItemStreamException {
+        // Update logic, if needed
+    }
+
+    @Override
+    public void close() {
+        // Close logic, if needed
+    }
+
+    private CustomObjectItemReader.DefaultLineMapper<CustomObject> createLineMapper() {
+        CustomObjectItemReader.DefaultLineMapper<CustomObject> lineMapper = new CustomObjectItemReader.DefaultLineMapper<>();
+
+        LineTokenizer lineTokenizer = createLineTokenizer();
+        lineMapper.setLineTokenizer(lineTokenizer);
+
+        CustomObjectFieldSetMapper fieldSetMapper = new CustomObjectFieldSetMapper();
+        lineMapper.setFieldSetMapper(fieldSetMapper);
+
+        return lineMapper;
+    }
+
+    private LineTokenizer createLineTokenizer() {
+        DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
+        lineTokenizer.setDelimiter(","); // Set the delimiter based on your CSV format
+        lineTokenizer.setNames("field1", "field2", "field3"); // Set field names based on your CSV headers
+        return lineTokenizer;
+    }
+
+    @Override
+    protected BufferedReader doRead() throws Exception {
+        // Use the AWS SDK to download the S3 object
+        GetObjectRequest getObjectRequest = GetObjectRequest.builder()
+                .bucket(bucketName)
+                .key(key)
+                .build();
+
+        try (GetObjectResponse getObjectResponse = s3Client.getObject(getObjectRequest);
+             InputStream inputStream = getObjectResponse.readableByteChannel().asInputStream()) {
+
+            return new BufferedReader(new InputStreamReader(inputStream));
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading from S3", e);
+        }
+    }
+}

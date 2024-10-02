@@ -1,0 +1,70 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemStreamException;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.mapping.DefaultLineMapper;
+import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.batch.item.file.transform.LineTokenizer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.stereotype.Component;
+
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+import com.coderelated.dbTOCSVTOawss3.service.S3Service;
+
+
+@Component
+public class S3ItemReader implements ItemReader<Users> {
+
+    private final S3Service s3Service;
+    private BufferedReader reader = null;
+
+    @Autowired
+    public S3ItemReader(S3Service s3Service) {
+        this.s3Service = s3Service;
+    }
+
+    @Override
+    public Users read() throws Exception {
+        // Use the AWS SDK to download the S3 object
+        String s3Key = "CustomerNew.csv";
+        S3Object s3Object = s3Service.getCSVObject(s3Key);
+
+        try (S3ObjectInputStream inputStream = s3Object.getObjectContent()) {
+            // Implement your logic to parse each line and convert it to a Users object
+            // For simplicity, let's assume each line is a CSV line with id and name separated by a comma
+            
+            if (reader == null) {
+                reader = new BufferedReader(new InputStreamReader(inputStream));
+                // Skip the header
+                reader.readLine();
+            }
+            String line = reader.readLine();
+            if (line != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                	System.out.println(parts[0]+"::"+parts[1]+":"+"!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    Users user = new Users();
+                    String idWithoutQuotes = parts[0].replaceAll("\"", "").trim();
+                    user.setId(Integer.parseInt(idWithoutQuotes));
+                    user.setName(parts[1].trim());
+                    return user;
+                }
+            }
+
+            // Return null when there is no more data
+            return null;
+        }
+    }
+}

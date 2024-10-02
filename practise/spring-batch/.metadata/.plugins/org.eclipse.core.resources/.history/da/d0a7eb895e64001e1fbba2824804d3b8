@@ -1,0 +1,36 @@
+package com.coderelated.dbTOCSVTOawss3.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+
+import com.coderelated.dbTOCSVTOawss3.model.Users;
+
+@Configuration
+public class PostgresDBConfig {
+	
+	@Bean
+	@ConfigurationProperties("spring.datasource.postgres")
+	public DataSourceProperties postgresDatasourceProperties() {
+		return new DataSourceProperties();
+	}
+	
+	@Bean
+	public DataSource postGresDataSource() {
+		return postgresDatasourceProperties().initializeDataSourceBuilder().build();
+	}
+	
+	@Bean
+	public LocalContainerEntityManagerFactoryBean postgresEntityManagerFactory(
+			@Qualifier("datasourceProperties") DataSource dataSource,
+			EntityManagerFactoryBuilder entityManagerFactoryBuilder) {
+		return entityManagerFactoryBuilder.dataSource(dataSource).packages(Users.class).build();
+	}
+
+}

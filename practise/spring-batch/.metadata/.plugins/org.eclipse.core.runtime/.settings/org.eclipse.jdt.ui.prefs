@@ -1,0 +1,12 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="org.springframework.batch.core.JobParametersIncrementer"><rhs name\="org.springframework.batch.core.launch.support.RunIdIncrementer"/></lhs><lhs name\="com.amazonaws.auth.AWSCredentials"><rhs name\="com.amazonaws.auth.BasicAWSCredentials"/></lhs><lhs name\="com.amazonaws.auth.AWSCredentialsProvider"><rhs name\="com.amazonaws.auth.AWSStaticCredentialsProvider"/></lhs><lhs name\="org.springframework.beans.factory.BeanClassLoaderAware"><rhs name\="org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"/></lhs><lhs name\="org.springframework.beans.factory.Aware"><rhs name\="org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"/></lhs><lhs name\="org.springframework.beans.factory.InitializingBean"><rhs name\="org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"/></lhs><lhs name\="org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"><rhs name\="org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"/></lhs><lhs name\="com.coderelated.dbTOCSVTOawss3.model.Users"><rhs name\="com.coderelated.dbTOCSVTOawss3.model.Users"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.Date"/></lhs><lhs name\="java.util.Date"><rhs name\="java.util.Date"/></lhs></history>
+content_assist_number_of_computers=17
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=23
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

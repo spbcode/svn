@@ -1,0 +1,36 @@
+package guru.springframework;
+
+import static org.junit.Assert.assertArrayEquals;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+import guru.springframework.test.jms.FakeJmsBroker;
+import guru.test.config.external.props.ExternalPropsEnvironment;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = SpringCoreDevOpsApplication.class)
+@WebAppConfiguration
+public class SpringCoreDevOpsApplicationTests {
+	
+	@Autowired
+	private FakeJmsBroker fakeJmsBroker;
+
+	@Test
+	public void contextLoads() {
+	}
+	
+	@Test
+	public void testexternalpropsenv() {
+		Assert.assertEquals("10.10.10.123", fakeJmsBroker.getUrl());
+		Assert.assertEquals("3330", fakeJmsBroker.getPort());
+		Assert.assertEquals("sam", fakeJmsBroker.getUser());
+		Assert.assertEquals("Burgundy", fakeJmsBroker.getPassword());
+	}
+
+}

@@ -1,0 +1,42 @@
+package com.coderelated.dbTOCSVTOawss3.batchJobReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.coderelated.dbTOCSVTOawss3.service.S3Service;
+
+@Component
+public class S3ItemReader extends FlatFileItemReader<String> {
+
+    private final S3Service s3Service;
+	
+    public S3ItemReader(S3Service s3Service) {
+    	this.s3Service=s3Service;
+        setResource(null);  // Set to null to avoid default resource behavior
+    }
+
+    @Override
+    protected List<String> doRead() throws Exception {
+       String s3ObjectKey= "output.csv";
+        try (S3Object s3Object = s3Service.getCSVObject(s3ObjectKey)) {
+            return readLines(new BufferedReader(new InputStreamReader(s3Object)));
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading from S3", e);
+        }
+    }
+
+    private List<String> readLines(BufferedReader reader) throws IOException	 {
+        // Read lines from the reader
+        // You may want to implement logic to split the lines based on CSV, etc.
+        // For simplicity, this example reads the entire content as one item.
+        return List.of(reader.readLine());
+    }
+}
