@@ -16,3 +16,4 @@ https://medium.com/@jaykreps/exactly-once-support-in-apache-kafka-55e1fdd0a35f
 https://www.youtube.com/watch?v=Wo9jlaz8h0k&t=1s&ab_channel=Databricks
 https://docs.confluent.io/index.html#streams-developer-guide-dsl-joins
 https://docs.confluent.io/platform/current/streams/developer-guide/dsl-api.html#stateful-transformations
+https://docs.confluent.io/index.html#streams-developer-guide-dsl-joins
